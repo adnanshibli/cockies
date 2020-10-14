@@ -102,3 +102,51 @@ function generateRandomNumber(min, max) {
   return random;
 }
 
+//
+var form = document.getElementById('Cookies-salmoon');
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
+ sum1 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+ var name = event.target.nameField.value;
+ var minForm = event.target.minCustmeor.value;
+ minForm = Number(minForm);
+
+ var maxForm = event.target.maxCustmeor.value;
+ maxForm = Number(maxForm);
+
+ var AvgForm = event.target.cookiesAvg.value;
+
+ AvgForm = Number(AvgForm);
+ var minForm = event.target.minCustmeor.value;
+ minForm = Number(minForm);
+
+ var maxForm = event.target.maxCustmeor.value;
+ maxForm = Number(maxForm);
+
+ var AvgForm = event.target.cookiesAvg.value;
+
+ AvgForm = Number(AvgForm);
+
+ var AddLocation = new Cities(name, maxForm, minForm, AvgForm);
+
+ for (var i = 0; i < Locations.length; i++) {
+  Locations[i].getRandomCustomerPerHours();
+  Locations[i].getcookies_purchased_Hour();
+ }
+ 
+ table.textContent = '';
+
+ var DataRow = document.createElement('tr');      
+ table.appendChild(DataRow);
+
+ addHeader();
+
+ for (var t = 0; t < Locations.length; t++) {
+
+   Locations[t].render();
+ }
+
+ addFooter();
+
+});
+
